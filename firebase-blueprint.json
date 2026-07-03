@@ -1,0 +1,48 @@
+{
+  "collections": [
+    {
+      "name": "agencies",
+      "rules": [
+        { "action": "read", "condition": "true" },
+        { "action": "write", "condition": "request.auth != null && request.auth.uid == id" }
+      ],
+      "subcollections": [
+        {
+          "name": "cars",
+          "rules": [
+            { "action": "read", "condition": "true" },
+            { "action": "write", "condition": "request.auth != null && request.auth.uid == agencyId" }
+          ]
+        },
+        {
+          "name": "clients",
+          "rules": [
+            { "action": "read", "condition": "request.auth != null && request.auth.uid == agencyId" },
+            { "action": "write", "condition": "request.auth != null && request.auth.uid == agencyId" }
+          ]
+        },
+        {
+          "name": "reservations",
+          "rules": [
+            { "action": "read", "condition": "request.auth != null && request.auth.uid == agencyId" },
+            { "action": "write", "condition": "request.auth != null && request.auth.uid == agencyId" }
+          ]
+        },
+        {
+          "name": "invoices",
+          "rules": [
+            { "action": "read", "condition": "request.auth != null && request.auth.uid == agencyId" },
+            { "action": "write", "condition": "request.auth != null && request.auth.uid == agencyId" }
+          ]
+        },
+        {
+          "name": "contracts",
+          "rules": [
+            { "action": "read", "condition": "request.auth != null && request.auth.uid == agencyId" },
+            { "action": "write", "condition": "request.auth != null && request.auth.uid == agencyId" }
+          ]
+        }
+      ]
+    }
+  ]
+}
